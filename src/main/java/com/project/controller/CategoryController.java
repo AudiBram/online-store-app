@@ -22,20 +22,20 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @Operation(summary = "Save Category", description = "Save a Category", tags = "Post")
+    @Operation(summary = "Save Category", description = "Save a Category", tags = "Category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Save the Category",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = Category.class))}),
             @ApiResponse(responseCode = "404", description = "Category not found",
                     content = @Content)})
-    @PostMapping("/created")
+    @PostMapping("/create")
     public ResponseEntity<Response> saveCategory(@RequestBody Category category) {
         categoryService.saveCategory(category);
         return new ResponseEntity<>(new Response("Success", category), HttpStatus.CREATED);
     }
 
-    @Operation(summary = "Get All Categories", description = "Get All Categories", tags = "Get")
+    @Operation(summary = "Get All Categories", description = "Get All Categories", tags = "Category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Retrieved all categories"),
             @ApiResponse(responseCode = "404", description = "Category not found",
@@ -45,7 +45,7 @@ public class CategoryController {
         return categoryService.findAll();
     }
 
-    @Operation(summary = "Update Category", description = "Update a Category", tags = "Put")
+    @Operation(summary = "Update Category", description = "Update a Category", tags = "Category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Update the Category",
                     content = {@Content(mediaType = "application/json",
@@ -61,7 +61,7 @@ public class CategoryController {
         return new ResponseEntity<>(new Response("Success", category), HttpStatus.OK);
     }
 
-    @Operation(summary = "Delete Category", description = "Delete Category", tags = "Delete")
+    @Operation(summary = "Delete Category", description = "Delete Category", tags = "Category")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Delete Category"),
             @ApiResponse(responseCode = "404", description = "Category not found",
