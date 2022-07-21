@@ -19,6 +19,7 @@ public class ProductService {
 
     public void createProduct(ProductDto productDto, Category category) {
         Product product = new Product();
+        product.setId(product.getId());
         product.setName(product.getName());
         product.setPrice(product.getPrice());
         product.setDescription(productDto.getDescription());

@@ -3,7 +3,6 @@ package com.project.controller;
 import com.project.common.Response;
 import com.project.dto.ProductDto;
 import com.project.entity.Category;
-import com.project.entity.Product;
 import com.project.repository.CategoryRepository;
 import com.project.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -55,7 +54,7 @@ public class ProductController {
         return new ResponseEntity<>(productDtos, HttpStatus.OK);
     }
 
-    @Operation(summary = "Update Category", description = "Update a Category", tags = "Category")
+    @Operation(summary = "Update Category", description = "Update a Category", tags = "Product")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Update the Category",
                     content = {@Content(mediaType = "application/json",
