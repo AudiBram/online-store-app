@@ -25,10 +25,10 @@ public class CustomerController {
 
     @Operation(summary = "Sign Up Customer", description = "Sign Up Customer", tags = "Customer")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Save the Product",
+            @ApiResponse(responseCode = "201", description = "Save the Customer",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = Category.class))}),
-            @ApiResponse(responseCode = "404", description = "Product not found",
+            @ApiResponse(responseCode = "404", description = "Customer not found",
                     content = @Content)})
     @PostMapping("/signup")
     public SignupResponseDto signUp(@RequestBody SignUpDto signUpDto) {
@@ -38,10 +38,10 @@ public class CustomerController {
 
     @Operation(summary = "Sign In Customer", description = "Save a Customer", tags = "Customer")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Save the Product",
+            @ApiResponse(responseCode = "201", description = "Save the Customer",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = Category.class))}),
-            @ApiResponse(responseCode = "404", description = "Product not found",
+            @ApiResponse(responseCode = "404", description = "Customer not found",
                     content = @Content)})
     @PostMapping("/signin")
     public SignupResponseDto signIn(@RequestBody SignInDto signInDto) {

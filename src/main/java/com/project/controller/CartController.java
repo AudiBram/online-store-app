@@ -37,14 +37,22 @@ public class CartController {
         return new ResponseEntity<>(new Response("Success", "Added Cart"), HttpStatus.CREATED);
     }
 
-    // get all
+    @Operation(summary = "Get All Cart", description = "Get All Cart", tags = "Cart")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Retrieved all Cart"),
+            @ApiResponse(responseCode = "404", description = "Cart not found",
+                    content = @Content)})
     @GetMapping
     public ResponseEntity<CartListDto> getAllCart() {
         CartListDto cartListDto = cartService.getAll();
         return new ResponseEntity<>(cartListDto, HttpStatus.OK);
     }
 
-    // delete
+    @Operation(summary = "Delete Cart", description = "Delete Cart", tags = "Cart")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Delete Cart"),
+            @ApiResponse(responseCode = "404", description = "Cart not found",
+                    content = @Content)})
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Response> deleteCart(@PathVariable("id") Long id) {
         cartService.deleteCart(id);

@@ -46,7 +46,7 @@ public class ProductController {
     @Operation(summary = "Get All Products", description = "Get All Products", tags = "Product")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Retrieved all Products"),
-            @ApiResponse(responseCode = "404", description = "Category not found",
+            @ApiResponse(responseCode = "404", description = "Product not found",
                     content = @Content)})
     @GetMapping
     public ResponseEntity<List<ProductDto>> getAllProducts() {
@@ -54,18 +54,18 @@ public class ProductController {
         return new ResponseEntity<>(productDtos, HttpStatus.OK);
     }
 
-    @Operation(summary = "Update Category", description = "Update a Category", tags = "Product")
+    @Operation(summary = "Update Product", description = "Update a Product", tags = "Product")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Update the Category",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = Category.class))}),
-            @ApiResponse(responseCode = "404", description = "Category not found",
+            @ApiResponse(responseCode = "404", description = "Product not found",
                     content = @Content)})
     @PutMapping("/update/{id}")
     public ResponseEntity<Response> updateProduct(@PathVariable("id") Long id, @RequestBody ProductDto productDto) {
         Optional<Category> byId = categoryRepository.findById(productDto.getCategoryId());
         if (byId.isEmpty()) {
-            return new ResponseEntity<>(new Response("Failed", "Category not exists"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Response("Failed", "Product not exists"), HttpStatus.BAD_REQUEST);
         }
         productService.updateProduct(productDto, id);
         return new ResponseEntity<>(new Response("Success", productDto), HttpStatus.OK);
