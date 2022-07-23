@@ -36,7 +36,7 @@ public class CustomerController {
     }
 
 
-    @Operation(summary = "Save Customer", description = "Save a Customer", tags = "Customer")
+    @Operation(summary = "Sign In Customer", description = "Save a Customer", tags = "Customer")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Save the Product",
                     content = {@Content(mediaType = "application/json",

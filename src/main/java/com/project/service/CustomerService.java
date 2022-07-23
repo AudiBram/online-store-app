@@ -1,8 +1,8 @@
 package com.project.service;
 
 import com.project.dto.SignInDto;
-import com.project.dto.SignupResponseDto;
 import com.project.dto.SignUpDto;
+import com.project.dto.SignupResponseDto;
 import com.project.entity.Customer;
 import com.project.entity.Token;
 import com.project.repository.CustomerRepository;
@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor

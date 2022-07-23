@@ -31,7 +31,7 @@ public class ProductService {
         List<Product> allProducts = productRepository.findAll();
         List<ProductDto> productDtos = new ArrayList<>();
 
-        for(Product product : allProducts) {
+        for (Product product : allProducts) {
             productDtos.add(getProduct(product));
         }
         return productDtos;
@@ -48,7 +48,7 @@ public class ProductService {
 
     public void updateProduct(ProductDto productDto, Long id) {
         Optional<Product> optional = productRepository.findById(id);
-        if(optional.isEmpty()) {
+        if (optional.isEmpty()) {
             throw new IllegalArgumentException(String.format("Product %s not fount", id));
         }
         Product product = optional.get();
@@ -58,4 +58,11 @@ public class ProductService {
         productRepository.save(product);
     }
 
+    public Product findById(Long productId) {
+        Optional<Product> id = productRepository.findById(productId);
+        if (id.isEmpty()) {
+            throw new IllegalArgumentException("Id not found");
+        }
+        return id.get();
+    }
 }
