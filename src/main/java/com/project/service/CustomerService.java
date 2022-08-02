@@ -1,7 +1,7 @@
 package com.project.service;
 
-import com.project.dto.SignInDto;
-import com.project.dto.SignUpDto;
+import com.project.dto.customer.SignInDto;
+import com.project.dto.customer.SignUpDto;
 import com.project.dto.SignupResponseDto;
 import com.project.entity.Customer;
 import com.project.entity.Token;

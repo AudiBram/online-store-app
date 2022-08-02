@@ -1,8 +1,8 @@
 package com.project.controller;
 
 import com.project.dto.SignupResponseDto;
-import com.project.dto.SignInDto;
-import com.project.dto.SignUpDto;
+import com.project.dto.customer.SignInDto;
+import com.project.dto.customer.SignUpDto;
 import com.project.entity.Category;
 import com.project.service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;

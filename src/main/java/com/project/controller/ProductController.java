@@ -48,8 +48,8 @@ public class ProductController {
             @ApiResponse(responseCode = "200", description = "Retrieved all Products"),
             @ApiResponse(responseCode = "404", description = "Product not found",
                     content = @Content)})
-    @GetMapping
-    public ResponseEntity<List<ProductDto>> getAllProducts() {
+    @GetMapping("/")
+    public ResponseEntity<List<ProductDto>> getProducts() {
         List<ProductDto> productDtos = productService.getAll();
         return new ResponseEntity<>(productDtos, HttpStatus.OK);
     }

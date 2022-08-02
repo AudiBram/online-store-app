@@ -19,9 +19,8 @@ public class ProductService {
 
     public void createProduct(ProductDto productDto, Category category) {
         Product product = new Product();
-        product.setId(product.getId());
-        product.setName(product.getName());
-        product.setPrice(product.getPrice());
+        product.setName(productDto.getName());
+        product.setPrice(productDto.getPrice());
         product.setDescription(productDto.getDescription());
         product.setCategory(category);
         productRepository.save(product);
@@ -41,8 +40,9 @@ public class ProductService {
         ProductDto dto = new ProductDto();
         dto.setCategoryId(product.getCategory().getId());
         dto.setName(product.getName());
-        dto.setPrice(dto.getPrice());
+        dto.setPrice(product.getPrice());
         dto.setDescription(product.getDescription());
+        dto.setId(product.getId());
         return dto;
     }
 
@@ -52,8 +52,8 @@ public class ProductService {
             throw new IllegalArgumentException(String.format("Product %s not fount", id));
         }
         Product product = optional.get();
-        product.setName(product.getName());
-        product.setPrice(product.getPrice());
+        product.setName(productDto.getName());
+        product.setPrice(productDto.getPrice());
         product.setDescription(productDto.getDescription());
         productRepository.save(product);
     }

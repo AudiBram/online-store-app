@@ -4,7 +4,6 @@ import com.project.dto.CartDto;
 import com.project.dto.CartItemDto;
 import com.project.dto.CartListDto;
 import com.project.entity.Cart;
-import com.project.entity.Customer;
 import com.project.entity.Product;
 import com.project.repository.CartRepository;
 import lombok.AllArgsConstructor;
